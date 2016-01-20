@@ -1,0 +1,32 @@
+# ****** READ ME! *****
+# If you change the user/pass values below you must update for
+# each database.yml in the component app.
+#
+# You can use the script in the root dir to do this for you.
+#
+# Run: ./prepare_tests.sh
+#
+# This will update the `database.yml` for each component's dummy app 
+# ***** READ ME ! *****
+
+default: &default
+  adapter: mysql2
+  username: steak
+  password: abc123
+  host: 127.0.0.1
+  pool: 25
+
+development:
+  <<: *default
+  database: mitoo_steak_dev
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: mitoo_steak_test
+
+production:
+  <<: *default
+  database: mitoo_steak_prod
